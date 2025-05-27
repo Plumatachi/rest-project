@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Client CRUD Simple</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Client CRUD Simple</h1>
+        <span id="authStatus" class="status disconnected">Non connecté</span>
+    </div>
+
+    <div class="auth-section">
+        <div id="loginForm" class="auth-form">
+            <div>
+                <input type="text" id="loginInput" placeholder="Login" />
+            </div>
+            <div>
+                <input type="password" id="passwordInput" placeholder="Mot de passe" />
+            </div>
+            <button onclick="login()">Se connecter</button>
+            <button onclick="showRegisterForm()">S'inscrire</button>
+        </div>
+
+        <div id="registerForm" class="auth-form hidden">
+            <div>
+                <input type="text" id="registerLogin" placeholder="Login" />
+            </div>
+            <div>
+                <input type="password" id="registerPassword" placeholder="Mot de passe" />
+            </div>
+            <div>
+                <input type="password" id="registerConfirmPassword" placeholder="Confirmer le mot de passe" />
+            </div>
+            <button onclick="register()">Créer le compte</button>
+            <button onclick="showLoginForm()">Retour à la connexion</button>
+        </div>
+
+        <div id="loggedInSection" class="hidden">
+            <span>Connecté ! </span>
+            <button onclick="logout()">Se déconnecter</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="messages"></div>
+
+        <div class="section">
+            <h2>Produits</h2>
+
+            <div id="addProductForm" class="hidden">
+                <h3>Ajouter un produit</h3>
+                <div class="form-group">
+                    <label>Nom:</label>
+                    <input type="text" id="productName" />
+                </div>
+                <div class="form-group">
+                    <label>Prix:</label>
+                    <input type="number" id="productPrice" step="0.01" />
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea id="productDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Catégorie:</label>
+                    <select id="productCategory">
+                        <option value="">Sélectionner une catégorie</option>
+                    </select>
+                </div>
+                <button onclick="addProduct()">Ajouter</button>
+                <button onclick="cancelAdd()">Annuler</button>
+            </div>
+
+            <div id="editProductForm" class="edit-form hidden">
+                <h3>Modifier le produit</h3>
+                <input type="hidden" id="editProductId" />
+                <div class="form-group">
+                    <label>Nom:</label>
+                    <input type="text" id="editProductName" />
+                </div>
+                <div class="form-group">
+                    <label>Prix:</label>
+                    <input type="number" id="editProductPrice" step="0.01" />
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea id="editProductDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Catégorie:</label>
+                    <select id="editProductCategory">
+                        <option value="">Sélectionner une catégorie</option>
+                    </select>
+                </div>
+                <button onclick="updateProduct()">Mettre à jour</button>
+                <button onclick="cancelEdit()">Annuler</button>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <button onclick="loadProducts()">Actualiser</button>
+                <button id="showAddBtn" onclick="showAddForm()" class="hidden">Ajouter un produit</button>
+            </div>
+
+            <div id="productsContainer" class="products-grid"></div>
+        </div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
