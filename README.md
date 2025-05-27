@@ -2,6 +2,19 @@
 
 ## 🚀 Lancement du serveur
 
+Avant de lancer le serveur, créez un fichier `.env` à la racine du projet avec les variables d'environnement suivantes :
+
+```env
+DB_NAME=simple_database
+DB_USER=          # Votre nom d'utilisateur de la base de données
+DB_PASSWORD=      # Votre mot de passe de la base de données
+DB_HOST=localhost
+PORT=5000
+
+JWT_SECRET=       # Une clé secrète JWT (générée avec par exemple `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`)
+JWT_EXPIRES_IN=1h # Durée de validité du token JWT
+```
+
 Depuis la racine du projet, exécutez :
 
 ```bash
