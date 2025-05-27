@@ -27,15 +27,6 @@ Assurez-vous d’avoir installé les dépendances avec :
 npm install
 ```
 
-Aussi pour vous assurer de bien vous connecter à la base de données, créez un utilisateur et donnez lui tous les droits sur la base de données `simple_database` :
-
-```bash
-mysql -u root -p
-CREATE USER 'simple_user'@'localhost' IDENTIFIED BY 'simple_password';
-GRANT ALL PRIVILEGES ON simple_database.* TO 'simple_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
 ## 📚 Endpoints de l’API
 
 ---
